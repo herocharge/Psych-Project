@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PsychProject</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4 flex justify-center items-center min-h-screen">
+    <div class="w-1/2">
+        <h2 class="text-2xl mb-4">Psycho</h2>
+        <div class="bg-white rounded-lg p-6 shadow-md">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-600">Name:</label>
+                <input type="text" id="name" name="name" required
+                    class="mt-1 p-2 block w-full rounded-md border-2 border-gray-300 focus:ring focus:ring-opacity-50 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div class="mb-4">
+                <label for="roll_number" class="block text-sm font-medium text-gray-600">Roll Number:</label>
+                <input type="text" id="roll_number" name="roll_number" required
+                    class="mt-1 p-2 block w-full rounded-md border-2 border-gray-300 focus:ring focus:ring-opacity-50 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div class="text-right">
+                <button value="Submit" onclick="validateForm()"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md cursor-pointer">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var rollNumber = document.getElementById("roll_number").value;
+            var exp_num = Math.floor(Math.random() * 3);
+            document.cookie = JSON.stringify({"name":name, "roll":rollNumber, "exp":exp_num});
+            location.href = "/" + exp_num + ".html"
+        }
+    </script>
+</body>
+</html>
